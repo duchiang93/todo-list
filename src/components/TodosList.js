@@ -20,8 +20,9 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
   const handleDelete = ({ id }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
+
   return (
-    <div>
+    <div className="todolist">
       {todos.map((todo) => (
         <li className="list-item" key={todo.id}>
           <input
@@ -31,7 +32,7 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
             onChange={(event) => event.preventDefault()}
           />
 
-          <div>
+          <div className="todo-button">
             <button
               className="button-complete task-button"
               onClick={() => handleComplete(todo)}

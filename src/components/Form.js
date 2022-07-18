@@ -21,7 +21,6 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
   const onInputChange = (event) => {
     setInput(event.target.value);
   };
-
   const onFormSubmit = (event) => {
     event.preventDefault();
     if (!editTodo) {
@@ -30,9 +29,6 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     } else {
       updateTodo(input, editTodo.id, editTodo.completed);
     }
-
-    setTodos([...todos, { id: uuidv4(), title: input, completed: false }]);
-    setInput("");
   };
   return (
     <form onSubmit={onFormSubmit}>
