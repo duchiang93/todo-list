@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
-  //執行了editTodo function後，要更新todo，
+  //更新todo
   const updateTodo = (title, id, completed) => {
+    // 遍歷todos State ，找到要被edit的todo(Id相同)，放進newTodo，Id不相同就把原本的todo丟回去
     const newTodo = todos.map((todo) =>
       todo.id === id ? { title, id, completed } : todo
     );
@@ -27,11 +28,11 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
   //submit function
   const onFormSubmit = (event) => {
     event.preventDefault();
-    //如果不執行editTodo function，就要改變setTodo State狀態，改變後要將Input value清空，設定為空字串
+    //如果editTodo狀態為空，用setTodos新增一條todo，後要將Input value清空，設定為空字串
     if (!editTodo) {
       setTodos([...todos, { id: uuidv4(), title: input, completed: false }]);
       setInput("");
-      //如果執行了editTodo function，那就要繼續執行updateTodo function
+      //如果editTodo有值，則執行updateTodo function來更新todo
     } else {
       updateTodo(input, editTodo.id, editTodo.completed);
     }
