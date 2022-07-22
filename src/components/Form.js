@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
-  //更新todo
+  //更新被選取editTodo
   const updateTodo = (title, id, completed) => {
-    // 遍歷todos State ，找到要被edit的todo(Id相同)，放進newTodo，Id不相同就把原本的todo丟回去
+    // 遍歷todos State，找到要被edit的todo(Id會相同)，放進newTodo，Id不相同就把原本的todo丟回去
     const newTodo = todos.map((todo) =>
       todo.id === id ? { title, id, completed } : todo
     );
+    //把 newTodo 放進setTodos改變狀態
     setTodos(newTodo);
     setEditTodo("");
   };
