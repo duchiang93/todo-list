@@ -19,6 +19,7 @@
     border-radius: 10px;
     box-shadow: 3px 6px 35px #000;
     overflow-y: scroll;
+
     .header h1 {
       color: #fff;
       text-align: center;
@@ -90,6 +91,20 @@
       }
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/*Handle*/
+::-webkit-scrollbar-thumb {
+  background-color: #0b383e;
+  border-radius: 80px;
+}
+
+::-webkit-scrollbar-button {
+  height: 10px;
 }
 
 .complete {
