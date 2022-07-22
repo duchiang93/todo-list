@@ -39,7 +39,7 @@ const Form = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
     }
   };
 
-  //1. 製作表單
+  //製作表單
   return (
     //導入submit function
     <form onSubmit={onFormSubmit}>

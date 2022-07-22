@@ -16,7 +16,7 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
 
   // 取出要編輯那項的id
   const handleEdit = ({ id }) => {
-    // 尋找todo is尋找todo id與上列id相同的，放進findTodo內
+    // 尋找todo id與上列id相同的，放進findTodo內
     const findTodo = todos.find((todo) => todo.id === id);
     // 使用findTodo改變setEditTodo的狀態
     setEditTodo(findTodo);
@@ -24,6 +24,7 @@ const TodosList = ({ todos, setTodos, setEditTodo }) => {
 
   // 取出要刪除那項的id
   const handleDelete = ({ id }) => {
+    // 把要刪除那項的id過濾掉，更新setTodos狀態
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
